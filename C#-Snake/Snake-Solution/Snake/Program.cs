@@ -24,6 +24,11 @@ namespace Snake
       leftLine.Drow();
       rightLine.Drow();
 
+      // старт змейки
+      Point p = new Point(4, 5, '*');
+      Snake snake = new Snake(p, 3, Diractions.RUGHT);
+      snake.Drow();
+
 
       Console.ReadKey();
     }
