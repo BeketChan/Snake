@@ -59,5 +59,17 @@ namespace Snake
           break;
       }
     }
+
+    internal bool Eat(Point food)
+    {
+      Point head = GetNewPoint();
+      if (head.IsHit(food))
+      {
+        food.sym = head.sym;
+        line.Add(food);
+        return true;
+      }
+      else return false;
+    }
   }
 }

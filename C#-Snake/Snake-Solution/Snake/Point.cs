@@ -59,6 +59,11 @@ namespace Snake
       Console.Write(sym);
     }
 
+    internal bool IsHit(Point p)
+    {
+      return p.x == x && p.y == y;
+    }
+
     /*public override string ToString()
     {
       return x + "," + y + "," + sym;
