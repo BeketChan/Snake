@@ -16,14 +16,8 @@ namespace Snake
       Console.SetWindowSize(80, 25);
 
       // рамочка
-      HorizontalLine upLine = new HorizontalLine(1, 78, 0, '+');
-      HorizontalLine downLine = new HorizontalLine(1, 78, 24, '+');
-      VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
-      VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
-      upLine.Drow();
-      downLine.Drow();
-      leftLine.Drow();
-      rightLine.Drow();
+      Walls walls = new Walls(80, 25);
+      walls.Drow();
 
       // старт змейки
       Point p = new Point(4, 5, '*');
@@ -31,12 +25,18 @@ namespace Snake
       fsnake.Drow();
       Snake snake = (Snake)fsnake;
 
+      // кидаем еду
       FoodCreator foodCreator = new FoodCreator(25, 80, '$');
       Point food = foodCreator.CreateFood();
       food.Drow();
 
       while (true)
       {
+        if(walls.IsHit(snake) || snake.IsHitTail())
+        {
+          break;
+        }
+
         if (snake.Eat(food))
         {
           food = foodCreator.CreateFood();
@@ -56,6 +56,7 @@ namespace Snake
         }
       }
 
+      Console.Write("ВЫ проиграли !");
       Console.ReadKey();
     }
   }

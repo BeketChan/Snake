@@ -13,7 +13,7 @@ namespace Snake
       line = new List<Point>();
       for (int n = yTop; n <= yBotton; n++)
       {
-        Point p = new Point(x, n, '+');
+        Point p = new Point(x, n, sym);
         line.Add(p);
       }
     }

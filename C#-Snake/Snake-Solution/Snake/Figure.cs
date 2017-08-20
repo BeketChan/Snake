@@ -17,5 +17,25 @@ namespace Snake
         p.Drow();
       }
     }
+
+    internal virtual bool IsHit(Figure figure)
+    {
+      foreach(Point p in line)
+      {
+        if (figure.IsHit(p))
+          return true;
+      }
+      return false;
+    }
+
+    internal virtual bool IsHit(Point point)
+    {
+      foreach (Point p in line)
+      {
+        if (p.IsHit(point))
+          return true;
+      }
+      return false;
+    }
   }
 }
