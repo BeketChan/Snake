@@ -66,6 +66,7 @@ namespace Snake
       if (head.IsHit(food))
       {
         food.sym = head.sym;
+        food.Drow();
         line.Add(food);
         return true;
       }

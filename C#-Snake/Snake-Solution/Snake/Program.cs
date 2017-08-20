@@ -27,8 +27,9 @@ namespace Snake
 
       // старт змейки
       Point p = new Point(4, 5, '*');
-      Snake snake = new Snake(p, 3, Diractions.RUGHT);
-      snake.Drow();
+      Figure fsnake = new Snake(p, 3, Diractions.RUGHT);
+      fsnake.Drow();
+      Snake snake = (Snake)fsnake;
 
       FoodCreator foodCreator = new FoodCreator(25, 80, '$');
       Point food = foodCreator.CreateFood();
