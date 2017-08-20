@@ -29,21 +29,17 @@ namespace Snake
       Point p = new Point(4, 5, '*');
       Snake snake = new Snake(p, 3, Diractions.RUGHT);
       snake.Drow();
-      snake.Move();
-      Thread.Sleep(300);
-      snake.Drow();
-      snake.Move();
-      Thread.Sleep(300);
-      snake.Drow();
-      snake.Move();
-      Thread.Sleep(300);
-      snake.Drow();
-      snake.Move();
-      Thread.Sleep(300);
-      snake.Drow();
-      snake.Move();
-      Thread.Sleep(300);
 
+      while (true)
+      {
+        if (Console.KeyAvailable)
+        {
+          ConsoleKeyInfo keyInfo = Console.ReadKey();
+          snake.HandleKey(keyInfo.Key);
+        }
+        Thread.Sleep(100);
+        snake.Move();
+      }
 
       Console.ReadKey();
     }

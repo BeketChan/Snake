@@ -40,5 +40,24 @@ namespace Snake
       nextPoint.Move(1, diraction);
       return nextPoint;
     }
+
+    public void HandleKey(ConsoleKey key)
+    {
+      switch (key)
+      {
+        case ConsoleKey.UpArrow:
+          diraction = Diractions.UP;
+          break;
+        case ConsoleKey.DownArrow:
+          diraction = Diractions.DOUN;
+          break;
+        case ConsoleKey.LeftArrow:
+          diraction = Diractions.LEFT;
+          break;
+        case ConsoleKey.RightArrow:
+          diraction = Diractions.RUGHT;
+          break;
+      }
+    }
   }
 }
